@@ -5,6 +5,8 @@
 
 ---
 
+Live Demo Link: https://talentscout-10-giie27vvf5xemcrprmvfdo.streamlit.app/
+
 ## 📌 Project Overview
 
 **TalentScout** is an intelligent hiring assistant chatbot that automates the initial screening of technology candidates. It conducts a structured, conversational interview — collecting candidate details, optionally analysing their resume, and generating targeted technical questions based on their declared tech stack and experience level.
