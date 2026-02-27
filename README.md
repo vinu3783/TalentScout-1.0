@@ -6,6 +6,7 @@
 ---
 
 Live Demo : https://talentscout-10-giie27vvf5xemcrprmvfdo.streamlit.app/
+Demo Video : https://www.loom.com/share/928fa6340c984d9cb277bb2a600b4dfa
 
 ## 📌 Project Overview
 
