@@ -56,7 +56,7 @@ talentscout/
 ### Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/talentscout.git
+git clone https://github.com/vinu3783/TalentScout-1.0
 cd talentscout
 ```
 
