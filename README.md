@@ -1,7 +1,7 @@
 # 🤖 TalentScout — AI-Powered Hiring Assistant Chatbot
 
 > AI/ML Intern Assignment · PG-AGI  
-> Built with Python · Streamlit · Local NLP · Google Gemini (optional)
+> Built with Python · Streamlit · Local NLP · Google Gemini 
 
 ---
 
