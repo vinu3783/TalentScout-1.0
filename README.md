@@ -5,7 +5,7 @@
 
 ---
 
-Live Demo Link: https://talentscout-10-giie27vvf5xemcrprmvfdo.streamlit.app/
+Live Demo : https://talentscout-10-giie27vvf5xemcrprmvfdo.streamlit.app/
 
 ## 📌 Project Overview
 
