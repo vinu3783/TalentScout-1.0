@@ -19,7 +19,7 @@
 | 🛠 Technical Questions | 420+ curated questions across 21 tech stacks, levelled by experience |
 | 🎨 Premium UI | Custom dark-theme Streamlit interface with glassmorphism design |
 | 🔒 GDPR-Compliant | Local data storage, no external data transmission |
-| ⚡ Zero API Dependency | Core flow runs 100% locally — no API key required for basic use |
+
 
 ---
 
@@ -85,14 +85,13 @@ Full dependency list:
 streamlit>=1.35.0
 pdfplumber
 pypdf
-google-genai>=1.0.0    # optional — only for Gemini fallback question generation
+google-genai>=1.0.0    
 ```
 
-### Step 4 — API Key Setup (Optional)
+### Step 4 — API Key Setup 
 
-The chatbot runs fully without an API key. Gemini is only used as a fallback when the local question bank has no match for a niche tech stack.
 
-To enable Gemini (optional):
+To enable Gemini :
 
 ```bash
 mkdir -p .streamlit
@@ -162,7 +161,7 @@ ask_questions → farewell
 | `pypdf` | Fallback PDF text extraction |
 | `re` (stdlib) | Regex-based keyword and pattern matching in resume parser |
 | `json` (stdlib) | Local candidate data storage |
-| `google-genai` | Optional Gemini API for fallback question generation |
+| `google-genai` 
 
 ### Question Bank (`question_bank.py`)
 
