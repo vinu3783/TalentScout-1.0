@@ -7,7 +7,7 @@
 
 ## 📌 Project Overview
 
-**TalentScout** is an intelligent hiring assistant chatbot that automates the initial screening of technology candidates. It conducts a structured, conversational interview — collecting candidate details, optionally analysing their résumé, and generating targeted technical questions based on their declared tech stack and experience level.
+**TalentScout** is an intelligent hiring assistant chatbot that automates the initial screening of technology candidates. It conducts a structured, conversational interview — collecting candidate details, optionally analysing their resume, and generating targeted technical questions based on their declared tech stack and experience level.
 
 ### Key Capabilities
 
@@ -15,7 +15,7 @@
 |---|---|
 | 🗣 Structured Interview Flow | 11-stage pipeline from greeting to farewell |
 | 📋 Info Collection | Name, email, phone, experience, role, location, tech stack |
-| 📄 Résumé Parsing | Local PDF extraction — extracts companies, projects, skills, generates personalised questions |
+| 📄 Resume Parsing | Local PDF extraction — extracts companies, projects, skills, generates personalised questions |
 | 🛠 Technical Questions | 420+ curated questions across 21 tech stacks, levelled by experience |
 | 🎨 Premium UI | Custom dark-theme Streamlit interface with glassmorphism design |
 | 🔒 GDPR-Compliant | Local data storage, no external data transmission |
@@ -122,7 +122,7 @@ Open your browser at `http://localhost:8501`
 
 1. **Greeting** — TalentBot introduces itself and the screening process
 2. **Info Collection** — Bot asks for full name, email, phone, years of experience, desired role, current location, and tech stack — one field at a time
-3. **Résumé Upload** *(optional)* — Candidate uploads a PDF résumé. The bot extracts text locally using `pdfplumber`, finds companies, projects, and skills, then generates 3 personalised questions referencing actual experience
+3. **Resume Upload** *(optional)* — Candidate uploads a PDF resume. The bot extracts text locally using `pdfplumber`, finds companies, projects, and skills, then generates 3 personalised questions referencing actual experience
 4. **Technical Questions** — 3–8 curated questions matched to the declared tech stack and levelled by experience (fresher vs experienced)
 5. **Farewell** — Bot summarises the candidate's full profile and explains next steps
 
@@ -132,7 +132,7 @@ Type any of these at any point to end the session:
 
 `exit` · `quit` · `bye` · `goodbye` · `end` · `stop` · `done`
 
-### Résumé Upload Notes
+### Resume Upload Notes
 
 - **PDF only** — Max 10 MB
 - Works best with text-based PDFs (not scanned/image PDFs)
@@ -160,7 +160,7 @@ ask_questions → farewell
 | `streamlit` | Web UI framework |
 | `pdfplumber` | Primary PDF text extraction (handles complex layouts and tables) |
 | `pypdf` | Fallback PDF text extraction |
-| `re` (stdlib) | Regex-based keyword and pattern matching in résumé parser |
+| `re` (stdlib) | Regex-based keyword and pattern matching in resume parser |
 | `json` (stdlib) | Local candidate data storage |
 | `google-genai` | Optional Gemini API for fallback question generation |
 
@@ -171,7 +171,7 @@ ask_questions → farewell
 - Two difficulty levels per technology: **Fresher** (0–2 years) and **Experienced** (3+ years)
 - Selection logic: parses the candidate's tech stack string, matches tokens against the `TECH_GROUPS` dictionary, picks 2 questions per matched technology
 
-### Résumé Parser (`resume_parser.py`)
+### Resume Parser (`resume_parser.py`)
 
 Fully local — zero API calls. Pipeline:
 
@@ -196,7 +196,7 @@ Fully local — zero API calls. Pipeline:
 - **Glassmorphism** — translucent card borders with blur effects
 - **Typography** — Syne (headings), Outfit (body), JetBrains Mono (code/tags)
 - **Colour palette** — Electric Indigo · Purple · Emerald accent
-- **Sidebar** — Live progress tracker, candidate profile card, résumé insights card, question progress indicator
+- **Sidebar** — Live progress tracker, candidate profile card, resume insights card, question progress indicator
 - **Chat bubbles** — iMessage-style with sharp speaker corner and gradient top accent
 
 ---
@@ -238,13 +238,13 @@ or real production scenarios.
 Return ONLY a valid JSON array of strings.
 ```
 
-### Résumé-Based Questions
+### Resume-Based Questions
 
-Questions are generated from templates that embed actual résumé content:
+Questions are generated from templates that embed actual resume content:
 
 | Type | Template |
 |---|---|
-| Project | `"Your résumé mentions {project} — walk me through the most challenging part of building it and what you'd do differently now."` |
+| Project | `"Your resume mentions {project} — walk me through the most challenging part of building it and what you'd do differently now."` |
 | Company | `"At {company}, what was the most technically complex problem you solved and what was your approach?"` |
 | Two companies | `"You've worked at both {co1} and {co2} — what was the biggest technical or architectural difference between the two environments?"` |
 | Skill depth | Technology-specific questions from the `TECH_QUESTIONS` dictionary in `resume_parser.py` |
@@ -254,7 +254,7 @@ Questions are generated from templates that embed actual résumé content:
 Unexpected inputs are handled per-stage:
 
 - **Info fields** — Input is validated (email format, phone digits, etc.). Invalid input shows a specific error and re-asks the same question without advancing
-- **Résumé stage** — Only `skip` keyword or file upload accepted; any other text shows a redirect message
+- **Resume stage** — Only `skip` keyword or file upload accepted; any other text shows a redirect message
 - **Q&A stage** — Any text is accepted as an answer (no format restriction imposed on candidates)
 - **General** — Bot responds with "Please answer the current question to continue" and does not deviate from the interview flow
 
@@ -276,7 +276,7 @@ Unexpected inputs are handled per-stage:
 
 ### Challenge 3 — Complex PDF Layouts
 
-**Problem:** `pypdf` failed on résumés with tables, multi-column layouts, or custom fonts — a common format for professionally designed résumés.
+**Problem:** `pypdf` failed on resumes with tables, multi-column layouts, or custom fonts — a common format for professionally designed resumes.
 
 **Solution:** Added `pdfplumber` as the primary extractor (handles layout-aware extraction including tables and columns), with `pypdf` as a silent fallback. If both fail, the app auto-continues with tech stack questions — no user action required.
 
@@ -294,7 +294,7 @@ Unexpected inputs are handled per-stage:
 - [x] Custom Streamlit UI with premium dark theme
 - [x] All 7 candidate info fields collected and validated
 - [x] Tech stack → 3–5 targeted technical questions (local question bank)
-- [x] Résumé upload → personalised questions (local parser)
+- [x] Resume upload → personalised questions (local parser)
 - [x] Exit keyword handling at every stage
 - [x] Fallback for unexpected or invalid inputs
 - [x] Graceful farewell with full profile summary and next steps
@@ -311,7 +311,7 @@ Unexpected inputs are handled per-stage:
 - Premium dark glassmorphism design language
 - Animated step-by-step progress tracker in sidebar
 - Live candidate profile card updated in real time
-- Résumé insights card showing companies, skills, and project count
+- Resume insights card showing companies, skills, and project count
 - Question progress bar with dot indicators
 - iMessage-style chat bubbles with gradient accents
 - Custom styled file uploader
